@@ -1,6 +1,7 @@
 import { ToggleMobileNav } from "@/components/basics";
 import { useDialog } from "@/hooks";
 import { FC, ReactNode } from "react";
+import { NavLink } from "react-router-dom";
 
 import { NavbarLayout } from "./styles";
 
@@ -34,11 +35,13 @@ export const Navbar: FC<NavbarProps> = ({ items }) => {
             <div className="flex h-16 items-center justify-between">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  <img
-                    className="h-10 w-25"
-                    src="/src/assets/rickmorty-logo.svg"
-                    alt="Rick and Morty Logo"
-                  />
+                  <NavLink to={"/"}>
+                    <img
+                      className="h-10 w-25"
+                      src="/src/assets/rickmorty-logo.svg"
+                      alt="Rick and Morty Logo"
+                    />
+                  </NavLink>
                 </div>
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
@@ -65,6 +68,14 @@ export const Navbar: FC<NavbarProps> = ({ items }) => {
                 >
                   <ToggleMobileNav open={open} />
                 </button>
+              </div>
+              <div className="hidden md:block -mr-2 flex">
+                <a
+                  href={"https://github.com/Aireck2/rm-vite-ts"}
+                  aria-current="page"
+                >
+                  Github
+                </a>
               </div>
             </div>
           </div>
