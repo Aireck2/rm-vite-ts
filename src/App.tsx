@@ -1,16 +1,18 @@
-import { Layout } from "@/components/layouts";
+import { Suspense } from "react";
+import { RouterProvider } from "react-router";
+import { createBrowserRouter } from "react-router-dom";
+
+import { Loading } from "@/components/basics";
+
+import { routes } from "./routes";
 
 const App: React.FC = () => {
-  const menuItems = [
-    { href: "/", name: "Inicio" },
-    { href: "/characters", name: "Personajes" },
-    { href: "/episodes", name: "Episodios" },
-    { href: "/locations", name: "Lugares" },
-  ];
+  const router = createBrowserRouter(routes);
+
   return (
-    <Layout>
-      <Layout.Navbar items={menuItems} />
-    </Layout>
+    <Suspense fallback={<Loading />}>
+      <RouterProvider router={router} />
+    </Suspense>
   );
 };
 
