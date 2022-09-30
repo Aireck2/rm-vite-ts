@@ -26,7 +26,7 @@ export const Navbar: FC<NavbarProps> = ({ items }) => {
   const { open, handleToggle } = useDialog();
 
   return (
-    <div className="min-h-full min-w-full">
+    <div className="min-w-full">
       <nav className="">
         <div className="mx-auto max-w-9xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
