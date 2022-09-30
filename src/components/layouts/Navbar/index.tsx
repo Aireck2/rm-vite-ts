@@ -2,6 +2,7 @@ import { ToggleMobileNav } from "@/components/basics";
 import { useDialog } from "@/hooks";
 import { FC, ReactNode } from "react";
 import { NavLink } from "react-router-dom";
+import img from "../../../assets/rickmorty-logo.svg";
 
 export interface NavbarProps {
   items: MenuItem[];
@@ -35,7 +36,7 @@ export const Navbar: FC<NavbarProps> = ({ items }) => {
                 <NavLink to={"/"}>
                   <img
                     className="h-10 w-25"
-                    src="/src/assets/rickmorty-logo.svg"
+                    src={img}
                     alt="Rick and Morty Logo"
                   />
                 </NavLink>
