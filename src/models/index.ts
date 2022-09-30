@@ -1,2 +1,3 @@
-export * from './routes';
-export * from './user.type';
+export * from "./routes";
+export * from "./character.type";
+export * from "./episode.type";

@@ -3,8 +3,6 @@ import { useDialog } from "@/hooks";
 import { FC, ReactNode } from "react";
 import { NavLink } from "react-router-dom";
 
-import { NavbarLayout } from "./styles";
-
 export interface NavbarProps {
   items: MenuItem[];
   children?: ReactNode;
@@ -28,76 +26,74 @@ export const Navbar: FC<NavbarProps> = ({ items }) => {
   const { open, handleToggle } = useDialog();
 
   return (
-    <NavbarLayout>
-      <div className="min-h-full min-w-full">
-        <nav className="">
-          <div className="mx-auto max-w-9xl px-4 sm:px-6 lg:px-8">
-            <div className="flex h-16 items-center justify-between">
-              <div className="flex items-center">
-                <div className="flex-shrink-0">
-                  <NavLink to={"/"}>
-                    <img
-                      className="h-10 w-25"
-                      src="/src/assets/rickmorty-logo.svg"
-                      alt="Rick and Morty Logo"
-                    />
-                  </NavLink>
-                </div>
-                <div className="hidden md:block">
-                  <div className="ml-10 flex items-baseline space-x-4">
-                    {items?.map((item, index) => (
-                      <a
-                        key={index}
-                        href={item.href}
-                        className={itemClass}
-                        aria-current="page"
-                      >
-                        {item.name}
-                      </a>
-                    ))}
-                  </div>
+    <div className="min-h-full min-w-full">
+      <nav className="">
+        <div className="mx-auto max-w-9xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <NavLink to={"/"}>
+                  <img
+                    className="h-10 w-25"
+                    src="/src/assets/rickmorty-logo.svg"
+                    alt="Rick and Morty Logo"
+                  />
+                </NavLink>
+              </div>
+              <div className="hidden md:block">
+                <div className="ml-10 flex items-baseline space-x-4">
+                  {items?.map((item, index) => (
+                    <a
+                      key={index}
+                      href={item.href}
+                      className={itemClass}
+                      aria-current="page"
+                    >
+                      {item.name}
+                    </a>
+                  ))}
                 </div>
               </div>
-              <div className="-mr-2 flex md:hidden">
-                <button
-                  type="button"
-                  className="inline-flex items-center justify-center rounded-md bg-yellow-800 p-2 text-gray-300 hover:bg-yellow-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                  aria-controls="mobile-menu"
-                  aria-expanded="false"
-                  onClick={handleToggle}
-                >
-                  <ToggleMobileNav open={open} />
-                </button>
-              </div>
-              <div className="hidden md:block -mr-2 flex">
-                <a
-                  href={"https://github.com/Aireck2/rm-vite-ts"}
-                  aria-current="page"
-                >
-                  Github
-                </a>
-              </div>
+            </div>
+            <div className="-mr-2 flex md:hidden">
+              <button
+                type="button"
+                className="inline-flex items-center justify-center rounded-md bg-yellow-800 p-2 text-gray-300 hover:bg-yellow-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+                onClick={handleToggle}
+              >
+                <ToggleMobileNav open={open} />
+              </button>
+            </div>
+            <div className="hidden md:block -mr-2 flex">
+              <a
+                href={"https://github.com/Aireck2/rm-vite-ts"}
+                aria-current="page"
+              >
+                Github
+              </a>
             </div>
           </div>
+        </div>
 
-          {open ? (
-            <div className="md:hidden" id="mobile-menu">
-              <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
-                {items?.map((item, index) => (
-                  <a
-                    key={index}
-                    href={item.href}
-                    className={mobileItem}
-                    aria-current="page"
-                  >
-                    {item.name}
-                  </a>
-                ))}
-              </div>
+        {open ? (
+          <div className="md:hidden" id="mobile-menu">
+            <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
+              {items?.map((item, index) => (
+                <a
+                  key={index}
+                  href={item.href}
+                  className={mobileItem}
+                  aria-current="page"
+                >
+                  {item.name}
+                </a>
+              ))}
             </div>
-          ) : null}
-        </nav>
-      </div>
-    </NavbarLayout>
+          </div>
+        ) : null}
+      </nav>
+    </div>
   );
 };
