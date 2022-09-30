@@ -1,7 +1,3 @@
-import React from "react";
-
-import { ContainerLayout } from "./styles";
-
 import { Navbar, NavbarProps } from "../Navbar";
 
 interface NavComposition {
@@ -14,7 +10,7 @@ interface LayoutProps {
 export const Layout: React.FC<LayoutProps> & NavComposition = ({
   children,
 }) => {
-  return <ContainerLayout>{children}</ContainerLayout>;
+  return <div style={{ height: "100vh" }}>{children}</div>;
 };
 
 Layout.Navbar = Navbar;
