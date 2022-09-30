@@ -1,15 +1,12 @@
+import { Character } from "@/models";
 import { configureStore } from "@reduxjs/toolkit";
 
-import { User } from "@/models";
-
-import { userReducer } from "./slices";
+import { charactersReducer } from "./slices";
 
 export interface AppStore {
-  user: User;
+  characters: Character[];
 }
 
 export default configureStore<AppStore>({
-  reducer: {
-    user: userReducer,
-  },
+  reducer: { characters: charactersReducer },
 });
