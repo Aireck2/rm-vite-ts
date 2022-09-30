@@ -1,2 +1,2 @@
-export * from "./Characters.adapter";
+export * from "./Character.adapter";
 export * from "./Episode.adapter";
