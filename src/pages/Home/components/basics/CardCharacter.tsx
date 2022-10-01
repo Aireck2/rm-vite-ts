@@ -1,7 +1,8 @@
 import { FC } from "react";
 import { Character } from "@/models";
 
-const CardCharacter: FC<{ character: Character }> = ({ character }) => {
+const CardCharacter: FC<{ character?: Character }> = ({ character }) => {
+  if (!character) return <>Loading...</>;
   return (
     <a
       key={character.id}
