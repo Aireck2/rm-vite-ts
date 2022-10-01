@@ -1,3 +1,4 @@
+import { CharactersAdapter } from "@/adapters";
 import config from "./config";
 
 export const getApi = async (params: string) => {
@@ -10,8 +11,12 @@ export const getAllEpisodes = async () => {
   return await getApi(`/episode`);
 };
 
-export const getAllCharacters = async () => {
-  return await getApi(`/character`);
+export const getAllCharacters = async (page: number) => {
+  const result = await getApi(`/character?page=${page}`);
+  return {
+    pageInfo: result.info,
+    characters: CharactersAdapter(result?.results),
+  };
 };
 
 export const getAllLocations = async () => {
