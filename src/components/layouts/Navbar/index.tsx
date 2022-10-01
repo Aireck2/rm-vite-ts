@@ -27,7 +27,7 @@ export const Navbar: FC<NavbarProps> = ({ items }) => {
   const { open, handleToggle } = useDialog();
 
   return (
-    <div className="min-w-full">
+    <div className="min-w-full min-h-full">
       <nav className="">
         <div className="mx-auto max-w-9xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
@@ -67,12 +67,12 @@ export const Navbar: FC<NavbarProps> = ({ items }) => {
                 <ToggleMobileNav open={open} />
               </button>
             </div>
-            <div className="hidden md:block -mr-2 flex">
+            <div className="hidden md:block -mr-2">
               <a
                 href={"https://github.com/Aireck2/rm-vite-ts"}
                 aria-current="page"
               >
-                Github
+                <img className="h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
               </a>
             </div>
           </div>
