@@ -26,7 +26,7 @@ const Home: React.FC = () => {
 
   return (
     <div className="px-4 sm:px-6 lg:px-8">
-      <ListCharacters characters={characters} />
+      <ListCharacters title="Personajes Principales" characters={characters} />
       <ListEpisodes episodes={episodes} />
     </div>
   );
