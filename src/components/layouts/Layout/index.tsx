@@ -10,7 +10,7 @@ interface LayoutProps {
 export const Layout: React.FC<LayoutProps> & NavComposition = ({
   children,
 }) => {
-  return <div style={{ height: "100vh" }}>{children}</div>;
+  return <div>{children}</div>;
 };
 
 Layout.Navbar = Navbar;
